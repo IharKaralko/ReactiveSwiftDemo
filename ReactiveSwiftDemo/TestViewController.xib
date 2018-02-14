@@ -1,13 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestViewController" customModule="ReactiveSwiftDemo" customModuleProvider="target">
             <connections>
+                <outlet property="justLetters" destination="6uk-ph-IL4" id="hhS-yD-1tT"/>
+                <outlet property="justNumbers" destination="WFj-2C-yOY" id="A6C-3u-rLH"/>
+                <outlet property="textView" destination="VS9-wF-fFC" id="aZv-Og-Mt6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +22,47 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VS9-wF-fFC">
+                    <rect key="frame" x="37" y="60" width="302" height="192"/>
+                    <color key="backgroundColor" red="0.93917276709999997" green="0.98947984060000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="302" id="GB1-y5-izS"/>
+                        <constraint firstAttribute="height" constant="192" id="LG3-xB-ShO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFj-2C-yOY">
+                    <rect key="frame" x="42" y="260" width="113" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="1d9-Oe-tuk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Just Numbers"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uk-ph-IL4">
+                    <rect key="frame" x="194" y="260" width="115" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="115" id="cWU-8I-T6H"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Just Letters"/>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VS9-wF-fFC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="11a-i3-Nez"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VS9-wF-fFC" secondAttribute="trailing" constant="36.5" id="BmS-Jg-z5J"/>
+                <constraint firstItem="6uk-ph-IL4" firstAttribute="top" secondItem="VS9-wF-fFC" secondAttribute="bottom" constant="8" symbolic="YES" id="Dud-bw-SKk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6uk-ph-IL4" secondAttribute="trailing" constant="66" id="bjn-ak-zCx"/>
+                <constraint firstItem="WFj-2C-yOY" firstAttribute="top" secondItem="VS9-wF-fFC" secondAttribute="bottom" constant="8" symbolic="YES" id="bku-T9-BUz"/>
+                <constraint firstItem="6uk-ph-IL4" firstAttribute="leading" secondItem="WFj-2C-yOY" secondAttribute="trailing" constant="39" id="mas-VC-EWc"/>
+                <constraint firstItem="VS9-wF-fFC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="36.5" id="qsj-xF-uee"/>
+                <constraint firstItem="VS9-wF-fFC" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="y5t-et-ST7"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-265.5" y="-259.5"/>
         </view>
     </objects>
 </document>
