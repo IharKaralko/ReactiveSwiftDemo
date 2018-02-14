@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ReactiveSwift
+import Result
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let numbers = Signal<Int, NoError>.pipe()
+        let letters = Signal<String, NoError>.pipe()
+        let signal = Signal.combineLatest(numbers.output, letters.output)
+        signal.observeValues { next in print("Next: \(next)") }
+        signal.observeCompleted { print("Completed") }
+        
+        numbers.input.send(value: 0)      // nothing printed
+        numbers.input.send(value: 1)      // nothing printed
+        letters.input.send(value: "A")    // prints (1, A)
+        numbers.input.send(value: 2)      // prints (2, A)
+        numbers.input.sendCompleted()  // nothing printed
+        letters.input.send(value: "B")    // prints (2, B)
+        letters.input.send(value: "C")    // prints (2, C)
+        numbers.input.send(value: 2)
+        letters.input.sendCompleted()  // prints "Completed"
+     
+        
         // Override point for customization after application launch.
         return true
     }
